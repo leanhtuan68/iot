@@ -1,0 +1,113 @@
+/* Thiet lap thong so mac dinh cho toan bo trang web */
+* {
+    padding: 0; /* Loai bo khoang cach padding mac dinh cua tat ca phan tu */
+    margin: 0; /* Loai bo khoang cach margin mac dinh cua tat ca phan tu */
+    box-sizing: border-box; /* Dam bao padding va border khong anh huong den kich thuoc cua phan tu */
+}
+
+.wrap-container {
+    width: 100%; /* Chieu rong cua phan tu la 100% man hinh */
+    height: 100%; /* Chieu cao cua phan tu chiem 100% chieu cao cua man hinh */
+    padding: 48px 48px ; /* Them khoang cach ben trong phan tu: 48px tren duoi, 48px trai phai */
+    background-color: bisque ; /* Dat anh nen cho phan tu va khong lap lai anh */
+    background-size: cover; /* Dat kich thuoc anh nen phu kin phan tu */
+}
+#container{
+    display: flex; /* Sử dụng Flexbox để sắp xếp các phần tử con theo hàng ngang */
+    flex-direction: row; /* Xếp các phần tử theo chiều ngang (mặc định của Flexbox) */
+    gap: 4px; /* Tạo khoảng cách nhỏ giữa các phần tử con */
+}
+.row1 {
+    display: flex; /* Su dung Flexbox de sap xep cac phan tu con theo hang ngang */
+    flex-direction: row; /* Xep cac phan tu theo chieu ngang (mac dinh cua Flexbox) */
+    justify-content: space-between; /* Tao khoang cach deu giua cac phan tu */
+    gap: 24px; /* Tao khoang cach giua cac phan tu con la 24px */
+}
+
+.sensor {
+    background-color: transparent; /* Nen trong suot cho phan tu */
+    text-align: center; /* Can giua van ban va noi dung ben trong phan tu */
+}
+
+.icon-sensor {
+    width: 30%; /* Chieu rong cua icon chiem 30% chieu rong cua phan tu cha */
+}
+
+.sensor h4 {
+    color: green; /* Mau chu la xanh la cho cac the h4 ben trong sensor */
+}
+
+.device {
+    background-color: transparent; /* Nen trong suot cho phan tu */
+    text-align: center; /* Can giua van ban va noi dung ben trong phan tu */
+}
+
+
+
+main {
+    display: flex; /* Su dung Flexbox cho phan tu main */
+    flex-direction: column; /* Xep cac phan tu con theo chieu doc */
+    align-items: center; /* Canh giua cac phan tu theo chieu ngang */
+    gap: 24px; /* Tao khoang cach giua cac phan tu con la 24px */
+}
+
+h1 {
+    font-size: 3rem; /* Tang kich thuoc chu cua the h1 len 3rem */
+    margin-bottom: 10px; /* Them khoang cach duoi phan tu h1 la 10px */
+    text-align: center; /* Can giua noi dung van ban ben trong the h1 */
+}
+
+h2 {
+    display: inline; /* Hien thi cac phan tu tren cung mot hang */
+    font-size: 20px; /* Dat kich thuoc chu cua the h2 la 30px */
+    justify-content: center; /* Canh giua cac phan tu theo chieu doc */
+
+}
+
+h5,h4 {
+    font-size: 20px; /* Dat kich thuoc chu cua the h5 la 20px */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo-header{
+   
+    width: 20%; /* Mỗi khung chiếm 32% chiều rộng container */
+    height: 150px; /* Chiều cao của các khung */
+    display: flex; /* Sử dụng Flexbox cho khung con */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    text-align: center; /* Căn giữa văn bản nếu có */
+}
+
+.logo{
+    width: 30%;
+    height: auto;
+}
+.hcmute{
+    width: 100%;
+    height: auto;
+}
+.name{
+    flex-grow: 1; /* Khung chứa tên trường sẽ tự động mở rộng theo chiều ngang */
+    text-align: center;
+    padding: 0 20px; /* Khoảng cách giữa nội dung và viền */
+}
+img {
+    width: 30%;
+    height: auto;
+}
+.group-section {
+    display: flex; /* Su dung Flexbox cho phan group-section */
+    flex-direction: row; /* Xep cac phan tu con theo chieu doc */
+    color: black; /* Mau chu cho van ban ben trong la den */
+    font-size: 16px; /* Dat kich thuoc chu la 16px */
+    gap:33%
+}
+#time{
+    text-align: center;
+    font-size: 40px;
+}

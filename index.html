@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Thiet lap bang ma ky tu la UTF-8 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Dam bao trang web hoat dong tot tren cac trinh duyet cu va moi -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Thiet lap trang web co the responsive voi cac thiet bi khac nhau -->
+    <title>Smart</title>
+    <!-- Lien ket voi thu vien CSS Materialize de tao phong cach giao dien -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Lien ket voi file style.css de ap dung them phong cach ca nhan -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="wrap-container">
+        <div class="header">
+            <div class="logo-header">
+                <img src="./img/logo.png" alt="Logo" class="logo">
+            </div>
+            <div class="name"> 
+                <h2 style="color: rgb(1, 104, 189);">TRƯỜNG ĐẠI HỌC SƯ PHẠM KỸ THUẬT TP.HỒ CHÍ MINH</h2>
+            </div>
+            <div class="logo-header">
+                <img src="./img/hcmute.png" alt="hcmute" class="hcmute"> 
+                </div>
+        </div>
+
+        <div>
+            <h5 style="color: rgb(166, 0, 0); text-align: center;"><strong></strong>THỰC TẬP CƠ SỞ ỨNG DỤNG IOTs</h5>
+        </div>
+
+        <div>
+            <h4>MY TEAM WEBSITE</h4>
+            <div class="group-section">
+                <div>
+                    <p><strong>SVTH:</strong></p>
+                    <p>Lê Anh Tuấn</p>
+                    <p>Trần Văn Trung</p>
+                    <p>Phạm Như Trường</p>
+                </div>
+                <div id="time"> 
+                </div>
+                <script>
+               function dongho() {
+               var time = new Date();
+               var gio = time.getHours();
+               var phut = time.getMinutes();
+               var giay = time.getSeconds();
+               if (gio < 10) 
+               gio = "0" + gio;
+               if (phut < 10) 
+               phut = "0" + phut;
+               if (giay < 10) 
+               giay = "0" + giay;
+               document.getElementById("time").innerHTML = gio + ":" + phut + ":" + giay;
+               setTimeout("dongho()", 1000);
+               };
+               dongho();
+               </script>
+            </div>
+        </div>
+       
+        <main>
+            <div id="container">
+                
+                <!-- ROW 01 - Khung de hien thi nhiet do, do am va luong mua -->
+                <div class="row1">
+                    <div class="sensor">
+                        <img src="./img/hot.png" alt="icon" class="icon-sensor"><!--hien thi hinh anh nhiet do-->
+                        <h5 style="color: red;" id="nhietdo">None</h5> <!--hien thi gia tri nhiet do-->
+                        <h4>Nhiệt độ</h4><!--hien thi chư nhiet do ben duoi-->
+                        <div class="device">
+                            <img id="dieuhoa" src="./img/air-conditioner_off.png" alt="Dieu hoa"><!--them hinh anh dieu hoa-->
+                            <p style="font-size: 24px; font-family: Arial, sans-serif;">Điều hòa</p><!--them chu dieu hoa-->
+                            <div>
+                                <button id="btn1" class="btn waves-effect waves-light">ON</button><!--them nut on dieu hoa-->
+                                <button id="btn2" class="btn waves-effect waves-light">OFF</button><!--them nut off dieu hoa-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sensor">
+                        <img src="./img/humidity.png" alt="icon" class="icon-sensor">
+                        <h5 style="color: red;" id="doam">None</h5>
+                        <h4>Độ ẩm</h4>
+                        <div class="device">
+                            <img id="den" src="./img/light_off.png" alt="Den">
+                            <p style="font-size: 24px; font-family: Arial, sans-serif;">Đèn</p>
+                            <div>
+                                <button id="btn3" class="btn waves-effect waves-light">ON</button>
+                                <button id="btn4" class="btn waves-effect waves-light">OFF</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sensor">
+                        <img src="./img/rain.png" alt="icon" class="icon-sensor">
+                        <h5 style="color: red;" id="luongmua">None</h5>
+                        <h4>Lượng mưa</h4>
+                        <div class="device">
+                            <img id="quat" src="./img/fan_off.png" alt="Quat">
+                            <p style="font-size: 24px; font-family: Arial, sans-serif;">Quạt</p>
+                            <div>
+                                <button id="btn5" class="btn waves-effect waves-light">ON</button>
+                                <button id="btn6" class="btn waves-effect waves-light">OFF</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Lien ket toi file functions.js de xu ly cac chuc nang JavaScript -->
+    <script src="functions.js"></script>
+    <!-- SDK Firebase JS cot loi, duoc yeu cau de su dung Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
+    <script>
+        // Cau hinh ung dung Firebase
+        var firebaseConfig = {
+        apiKey: "AIzaSyC755YPHJ6TTO3aPbc-HLSyg0aIwVghglc",
+        authDomain: "weather-web-b8ecf.firebaseapp.com",
+        databaseURL: "https://weather-web-b8ecf-default-rtdb.firebaseio.com",
+        projectId: "weather-web-b8ecf",
+        storageBucket: "weather-web-b8ecf.appspot.com",
+        messagingSenderId: "900868765432",
+        appId: "1:900868765432:web:d091267eb68cb737ddad0d",
+        measurementId: "G-FGWRKZGJFG"
+};
+
+        // Khoi tao Firebase voi cau hinh tren
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        const database=firebase.database();
+
+        // Lay phan tu HTML de hien thi nhiet do
+        var nhietDo = document.getElementById('nhietdo');
+        // Tham chieu toi nut con 'Nhiet do' trong Firebase Database nhằm liên kết id nhiet do với nút nhiệt độ trên firebase
+        var dbRef1 = firebase.database().ref('Sensor').child('Nhiệt độ');
+
+        // Lay phan tu HTML de hien thi do am
+        var doAm = document.getElementById('doam');
+        // Tham chieu toi nut con 'Do am' trong Firebase Database
+        var dbRef2 = firebase.database().ref('Sensor').child('Độ ẩm');
+
+        // Lay phan tu HTML de hien thi luong mua
+        var luongMua = document.getElementById('luongmua');
+        // Tham chieu toi nut con 'Luong mua' trong Firebase Database
+        var dbRef3 = firebase.database().ref('Sensor').child('Lượng mưa');
+
+        // Su dung su kien 'value' de cap nhat nhiet do tu Firebase vao HTML
+        dbRef1.on('value', snap => nhietDo.innerText = snap.val());
+        // Su dung su kien 'value' de cap nhat do am tu Firebase vao HTML
+        dbRef2.on('value', snap => doAm.innerText = snap.val());
+        // Su dung su kien 'value' de cap nhat luong mua tu Firebase vao HTML
+        dbRef3.on('value', snap => luongMua.innerText = snap.val());
+
+
+        var dieuHoa = document.getElementById('dieuhoa');
+        var dbRef4 = firebase.database().ref().child('Dieuhoa').on('value', (snapshot) => {
+            const dieuHoa = snapshot.val(); // Lấy giá trị của Dieuhoa từ Firebase
+            if (dieuHoa === 1) {
+            dieuhoa.src = 'img/air-conditioner_on.png'; // Thay đổi hình ảnh điều hòa bật
+            } else {
+            dieuhoa.src = 'img/air-conditioner_off.png'; // Thay đổi hình ảnh điều hòa tắt
+            }
+        });
+ 
+
+        var Den = document.getElementById('den');
+        var dbRef5 = firebase.database().ref().child('Den').on('value', (snapshot) => {
+            const Den = snapshot.val(); // Lấy giá trị của Dieuhoa từ Firebase
+            if (Den === 1) {
+                den.src = 'img/light_on.png'; // Thay doi hinh anh thanh den bat
+            } else {
+                den.src = 'img/light_off.png'; // Thay doi hinh anh thanh den tat
+            }
+        });
+
+
+
+
+
+
+        var Quat = document.getElementById('quat');
+        var dbRef6 = firebase.database().ref().child('Quat').on('value', (snapshot) => {
+            const Quat = snapshot.val(); // Lấy giá trị của Dieuhoa từ Firebase
+            if (Quat === 1) {
+                quat.src = 'img/fan_on.png'; // Thay doi hinh anh thanh quat bat
+            } else {
+                quat.src = 'img/fan_off.png'; // Thay doi hinh anh thanh quat tat
+            }
+        });
+
+       
+
+ 
+
+    
+    </script>
+</body>
+</html>
